@@ -1,0 +1,19 @@
+<table border="1">
+    <caption>My House</caption>
+    <thead>
+        <tr>
+            <th>Room</th>
+            <th>Description</th>
+            <th>Target Date</th>
+            <th>is Completed?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let list of lists">
+            <td>{{list.room}}</td>
+            <td>{{list.description}}</td>
+            <td>{{list.targetDate | date | uppercase}}</td>
+            <td>{{list.done}}</td>
+        </tr>
+    </tbody>
+</table>
