@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authentication.service';
@@ -6,7 +7,7 @@ import { HardcodedAuthenticationService } from 'src/app/service/hardcoded-authen
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit{
 
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit{
   //Angular-giveMeRouter
   //Depency Injection
   constructor(private router: Router,  
-    public hardcodedAuthenticationService: HardcodedAuthenticationService){} 
+    private hardcodedAuthenticationService: HardcodedAuthenticationService) { } 
 
   ngOnInit() {
       

@@ -11,6 +11,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { HouseholdListComponent } from './components/household-list/household-list.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HouseholdListComponent,
     MenuComponent,
     FooterComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
