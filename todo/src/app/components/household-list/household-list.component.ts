@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from 'src/app/service/data/todo-data.service';
 
-export class List {
+export class Todo {
   constructor(
     public id: number,
     public description: string,
@@ -19,7 +19,9 @@ export class List {
 })
 export class HouseholdListComponent implements OnInit {
 
-  lists: List[] = [];
+  todos: Todo[] = [];
+
+  message: string = '';
 
 
   // = [
@@ -48,8 +50,21 @@ export class HouseholdListComponent implements OnInit {
     this.todoService.retrieveAllTodos('manager').subscribe(
       response => {
         console.log(response);
-        this.lists = response;
+        this.todos = response;
       }
     )
   }
+
+  deleteTodo(id: number) {
+    console.log(`delete todo ${id}`)
+    this.todoService.deleteTodo('manager', id).subscribe (
+      response=> {
+        console.log(response);
+        this.message = `Delete of Todo ${id} Succesful!`
+        this.refreshTodos();
+
+      }
+    )
+    }
+
 }
