@@ -1,37 +1,55 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TodoDataService } from 'src/app/service/data/todo-data.service';
 
 export class List {
   constructor(
     public id: number,
-    public room: string,
     public description: string,
     public done: boolean,
-    public targetDate: Date,
-  ){
-    
+    public targetDate: Date
+  ) {
+
   }
 }
 
 @Component({
-  selector: 'app-household-list',
-  templateUrl: './household-list.component.html',
-  styleUrls: ['./household-list.component.css']
+    selector: 'app-list-todos',
+    templateUrl: './household-list.component.html',
+    styleUrls: ['.//household-list.component.css'],
 })
-export class HouseholdListComponent implements OnInit{
-  
+export class HouseholdListComponent implements OnInit {
 
-    lists = [
-      new List(1, 'living room', 'vacuum', false, new Date()),
-      new List(2, 'kitchen', 'wash', false, new Date()),
-      new List(3, 'bath', 'cleaning', false, new Date()),
-      
-    ]
-   
+  lists: List[] = [];
 
-  constructor() { }
+
+  // = [
+  //   new Todo(1, 'Learn to Dance', false, new Date()),
+  //   new Todo(2, 'Become an Expert at Angular', false, new Date()),
+  //   new Todo(3, 'Visit India', false, new Date())
+  //   // {id : 1, description : },
+  //   // {id : 2, description : ''},
+  //   // {id : 3, description : 'Visit India'}
+  // ]
+
+  // todo = {
+  //     id : 1,
+  //     description: 'Learn to Dance'
+  // }
+
+  constructor(
+    private todoService: TodoDataService,
+  ) { }
 
   ngOnInit() {
-      
+    this.refreshTodos();
   }
 
+  refreshTodos() {
+    this.todoService.retrieveAllTodos('manager').subscribe(
+      response => {
+        console.log(response);
+        this.lists = response;
+      }
+    )
+  }
 }
