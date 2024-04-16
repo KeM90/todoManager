@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoDataService } from 'src/app/service/data/todo-data.service';
 
 export class Todo {
@@ -40,6 +41,7 @@ export class HouseholdListComponent implements OnInit {
 
   constructor(
     private todoService: TodoDataService,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -66,5 +68,10 @@ export class HouseholdListComponent implements OnInit {
       }
     )
     }
+
+    updateTodo(id: number) {
+      console.log(`update ${id}`)
+      this.router.navigate(['todos',id])
+      }
 
 }

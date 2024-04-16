@@ -6,10 +6,10 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Room</th>
                 <th>Description</th>
                 <th>Target Date</th>
                 <th>is Completed?</th>
+                <th>Update</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -18,7 +18,9 @@
                 <td>{{list.description}}</td>
                 <td>{{list.targetDate | date | uppercase}}</td>
                 <td>{{list.done}}</td>
+                <td><button (click)="updateTodo(list.id)" class ="btn btn-success">Update</button></td>
                 <td><button (click)="deleteTodo(list.id)" class ="btn btn-warning">Delete</button></td>
+
             </tr>
         </tbody>
     </table>
