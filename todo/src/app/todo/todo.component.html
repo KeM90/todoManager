@@ -5,7 +5,9 @@
 
     <fieldset class="form-group">
         <label>Description</label>
-        <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required">
+        <input type="text" #description="ngModel"
+        [(ngModel)]="todo.description" class="form-control"
+            name="description" required="required">
     </fieldset>
 
     <fieldset class="form-group">

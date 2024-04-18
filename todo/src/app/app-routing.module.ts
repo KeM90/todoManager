@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'logout', component: LogoutComponent, canActivate:[RouteGuardService]},
   {path:'welcome/:name', component: WelcomeComponent, canActivate:[RouteGuardService]},
-  {path:'list', component: HouseholdListComponent, canActivate:[RouteGuardService]},
+  {path:'todos', component: HouseholdListComponent, canActivate:[RouteGuardService]},
   {path:'todos/:id', component: TodoComponent, canActivate:[RouteGuardService]},
 
   {path:'**', component: ErrorComponent},
