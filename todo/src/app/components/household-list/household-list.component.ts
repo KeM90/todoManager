@@ -17,6 +17,7 @@ export class Todo {
     selector: 'app-list-todos',
     templateUrl: './household-list.component.html',
     styleUrls: ['.//household-list.component.css'],
+
 })
 export class HouseholdListComponent implements OnInit {
 
@@ -73,5 +74,9 @@ export class HouseholdListComponent implements OnInit {
       console.log(`update ${id}`)
       this.router.navigate(['todos',id])
       }
+
+    addTodo() {
+      this.router.navigate(['todos', -1])
+    }
 
 }

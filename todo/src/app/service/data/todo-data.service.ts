@@ -8,7 +8,7 @@ import { Todo } from 'src/app/components/household-list/household-list.component
 export class TodoDataService {
 
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
   retrieveAllTodos(username: string) {
@@ -27,6 +27,12 @@ export class TodoDataService {
   updateTodo(username:string, id: number, todo: Todo){
     return this.http.put(
       `http://localhost:8080/users/${username}/todos/${id}`
+      , todo);
+  }
+
+  createTodo(username:string, todo: Todo){
+    return this.http.post(
+      `http://localhost:8080/users/${username}/todos`
       , todo);
   }
 }
